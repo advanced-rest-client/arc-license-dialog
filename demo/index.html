@@ -20,25 +20,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-
   <link rel="import" href="../arc-license-dialog.html">
-
-  <style is="custom-style" include="demo-pages-shared-styles">
-
-  .vertical-section-container {
-    max-width: 600px;
-  }
-
-  :root {
-    --arc-font-headline: {
-      @apply --paper-font-headline;
-    };
-    --arc-font-title: {
-      @apply --paper-font-title;
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    :root {
+      --arc-font-headline: {
+        @apply --paper-font-headline;
+      };
+      --arc-font-title: {
+        @apply --paper-font-title;
+      }
     }
-  }
 
-  </style>
+    .vertical-section-container {
+      max-width: 600px;
+    }
+    </style>
+  </custom-style>
 </head>
 <body unresolved>
   <div class="vertical-section-container centered">

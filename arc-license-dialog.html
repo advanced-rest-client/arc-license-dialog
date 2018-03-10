@@ -11,7 +11,7 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 -->
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../paper-dialog-scrollable/paper-dialog-scrollable.html">
 <link rel="import" href="../paper-button/paper-button.html">
@@ -54,14 +54,16 @@ Custom property | Description | Default
       </div>
     </paper-dialog>
   </template>
-
   <script>
-  Polymer({
-    is: 'arc-license-dialog',
-    properties: {
-      // Set to open the dialog
-      opened: Boolean
+  class ArcLicenseDialog extends Polymer.Element {
+    static get is() { return 'arc-license-dialog'; }
+    static get properties() {
+      return {
+        // Set to open the dialog
+        opened: Boolean
+      };
     }
-  });
+  }
+  window.customElements.define(ArcLicenseDialog.is, ArcLicenseDialog);
   </script>
 </dom-module>
