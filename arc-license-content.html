@@ -11,7 +11,7 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 -->
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <!--
 `<arc-license-dialog>` A license information dialog for ARC
 
@@ -45,7 +45,7 @@ Custom property | Description | Default
 
     h3 {
       @apply --arc-font-headline;
-      color: var(--arc-license-section-title-color, --primary-color);
+      color: var(--arc-license-section-title-color, var(--primary-color));
     }
 
     h4 {
@@ -331,8 +331,9 @@ Custom property | Description | Default
     </section>
   </template>
   <script>
-  Polymer({
-    is: 'arc-license-content'
-  });
+  class ArcLicenseContent extends Polymer.Element {
+    static get is() { return 'arc-license-content'; }
+  }
+  window.customElements.define(ArcLicenseContent.is, ArcLicenseContent);
   </script>
 </dom-module>
