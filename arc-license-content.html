@@ -12,25 +12,7 @@ License for the specific language governing permissions and limitations under
 the License.
 -->
 <link rel="import" href="../polymer/polymer-element.html">
-<!--
-`<arc-license-dialog>` A license information dialog for ARC
 
-### Example
-```
-<arc-license-dialog></arc-license-dialog>
-```
-
-### Styling
-`<arc-license-dialog>` provides the following custom properties and mixins for styling:
-
-Custom property | Description | Default
-----------------|-------------|----------
-`--arc-license-dialog` | Mixin applied to the element | `{}`
-
-@group UI Elements
-@element arc-license-content
-@demo demo/index.html
--->
 <dom-module id="arc-license-content">
   <template>
     <style>
@@ -43,7 +25,8 @@ Custom property | Description | Default
       white-space: pre-line;
     }
 
-    h3 {
+    h3,
+    :host ::slotted(h3) {
       @apply --arc-font-headline;
       color: var(--arc-license-section-title-color, var(--primary-color));
     }
@@ -329,10 +312,26 @@ Custom property | Description | Default
         THE SOFTWARE.
       </div>
     </section>
+    <slot></slot>
   </template>
   <script>
+  /**
+   * License dialog content.
+   *
+   * ## Styling
+   *
+   * Custom property | Description | Default
+   * ----------------|-------------|----------
+   * `--arc-license-content` | Mixin applied to this elment | `{}`
+   * `--arc-license-section-title-color` | Color of section title | `--primary-color`
+   *
+   * @customElement
+   * @polymer
+   * @demo demo/index.html
+   * @memberof UiElements
+   */
   class ArcLicenseContent extends Polymer.Element {
-    static get is() { return 'arc-license-content'; }
+    static get is() {return 'arc-license-content';}
   }
   window.customElements.define(ArcLicenseContent.is, ArcLicenseContent);
   </script>
