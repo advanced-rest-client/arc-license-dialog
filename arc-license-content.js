@@ -1,4 +1,4 @@
-<!--
+/**
 @license
 Copyright 2016 The Advanced REST client authors <arc@mulesoft.com>
 Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -10,15 +10,29 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
--->
-<link rel="import" href="../polymer/polymer-element.html">
-
-<dom-module id="arc-license-content">
-  <template>
+*/
+import {PolymerElement} from '../../@polymer/polymer/polymer-element.js';
+import {html} from '../../@polymer/polymer/lib/utils/html-tag.js';
+/**
+ * License dialog content.
+ *
+ * ## Styling
+ *
+ * Custom property | Description | Default
+ * ----------------|-------------|----------
+ * `--arc-license-section-title-color` | Color of section title | `--primary-color`
+ *
+ * @customElement
+ * @polymer
+ * @demo demo/index.html
+ * @memberof UiElements
+ */
+class ArcLicenseContent extends PolymerElement {
+  static get template() {
+    return html`
     <style>
     :host {
       display: block;
-      @apply --arc-license-content;
     }
 
     .preformatted {
@@ -312,27 +326,7 @@ the License.
         THE SOFTWARE.
       </div>
     </section>
-    <slot></slot>
-  </template>
-  <script>
-  /**
-   * License dialog content.
-   *
-   * ## Styling
-   *
-   * Custom property | Description | Default
-   * ----------------|-------------|----------
-   * `--arc-license-content` | Mixin applied to this elment | `{}`
-   * `--arc-license-section-title-color` | Color of section title | `--primary-color`
-   *
-   * @customElement
-   * @polymer
-   * @demo demo/index.html
-   * @memberof UiElements
-   */
-  class ArcLicenseContent extends Polymer.Element {
-    static get is() {return 'arc-license-content';}
+    <slot></slot>`;
   }
-  window.customElements.define(ArcLicenseContent.is, ArcLicenseContent);
-  </script>
-</dom-module>
+}
+window.customElements.define('arc-license-content', ArcLicenseContent);

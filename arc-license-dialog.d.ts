@@ -5,14 +5,11 @@
  *   https://github.com/Polymer/tools/tree/master/packages/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   arc-license-dialog.html
+ *   arc-license-dialog.js
  */
 
-/// <reference path="../polymer/types/polymer-element.d.ts" />
-/// <reference path="../paper-dialog/paper-dialog.d.ts" />
-/// <reference path="../paper-dialog-scrollable/paper-dialog-scrollable.d.ts" />
-/// <reference path="../paper-button/paper-button.d.ts" />
-/// <reference path="arc-license-content.d.ts" />
+
+// tslint:disable:variable-name Describing an API that's defined elsewhere.
 
 declare namespace UiElements {
 
@@ -40,7 +37,7 @@ declare namespace UiElements {
    * ----------------|-------------|----------
    * `--arc-license-dialog` | Mixin applied to this elment | `{}`
    */
-  class ArcLicenseDialog extends Polymer.Element {
+  class ArcLicenseDialog extends PolymerElement {
 
     /**
      * Set to open the dialog
@@ -49,6 +46,11 @@ declare namespace UiElements {
   }
 }
 
-interface HTMLElementTagNameMap {
-  "arc-license-dialog": UiElements.ArcLicenseDialog;
+declare global {
+
+  interface HTMLElementTagNameMap {
+    "arc-license-dialog": UiElements.ArcLicenseDialog;
+  }
 }
+
+export {};

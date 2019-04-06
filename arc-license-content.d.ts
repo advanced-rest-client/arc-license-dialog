@@ -5,10 +5,11 @@
  *   https://github.com/Polymer/tools/tree/master/packages/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   arc-license-content.html
+ *   arc-license-content.js
  */
 
-/// <reference path="../polymer/types/polymer-element.d.ts" />
+
+// tslint:disable:variable-name Describing an API that's defined elsewhere.
 
 declare namespace UiElements {
 
@@ -19,13 +20,17 @@ declare namespace UiElements {
    *
    * Custom property | Description | Default
    * ----------------|-------------|----------
-   * `--arc-license-content` | Mixin applied to this elment | `{}`
    * `--arc-license-section-title-color` | Color of section title | `--primary-color`
    */
-  class ArcLicenseContent extends Polymer.Element {
+  class ArcLicenseContent extends PolymerElement {
   }
 }
 
-interface HTMLElementTagNameMap {
-  "arc-license-content": UiElements.ArcLicenseContent;
+declare global {
+
+  interface HTMLElementTagNameMap {
+    "arc-license-content": UiElements.ArcLicenseContent;
+  }
 }
+
+export {};
