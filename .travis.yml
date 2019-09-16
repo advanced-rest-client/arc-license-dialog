@@ -1,28 +1,9 @@
 language: node_js
 node_js: stable
 sudo: required
-before_script:
-- npm install -g polymer-cli
-- polymer install
 addons:
-  firefox: latest
   apt:
     sources:
     - google-chrome
     packages:
     - google-chrome-stable
-  sauce_connect: true
-script:
-- npm run lint
-- xvfb-run polymer test --plugin local
-- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then polymer test --plugin sauce --job-name
-  "arc-license-dialog:${TRAVIS_BRANCH}" --build-number=${TRAVIS_BUILD_NUMBER}; fi
-cache:
-  directories:
-  - node_modules
-after_success:
-- node tasks/ci.js
-env:
-  global:
-  - secure: yO1XCg0dujor91uiOOTCjvT9ZvfDPz5cV0M3Jn3161FQLomXvSThsR678KQdciu3OAEWErOYnMKaM/WfqOHmnUGpIhE43KEpqEMo2R5xteQ+SEKSJrDb45Z12WrQVkE1ACrXRhrdMd9QXnEOnhVncq4bye6Wthr2XM9EicWT1Hf8SEcLsIugJ43Adwy+IhiHq18VmA9vF4vf5FqRm6eNY4I8XqRvVDmDZ5FDy0oapRb0qo/rPvZJqISDkHzDmUqTxnjsfGThGdjhhRHmx5l6OluwJvjR5k57PwjXXnsvQLRb3AzvoaL8RiX7fHxYBvZ2IV8SMgMxPI5qCLy95GVVERAY1fvZIdLLiv3kzSfgZiW8A7TYoLsccdG2YEjXZV+HUv4dtqaML7JE7VWMhdgXDefZzJjoJ/pqGfQy4pjm5Ny6G8e7NcundN5kj6RogICnMjADw86JxbxWNsjWGrqjCVUafKak9+uPtMytqy9fTdPoH9hkbbRkA/mIFCxL4KxmKqqT/aJnOUg4E21LBAkvV27Lp5IqoXIRkyO1yFAPx99Wa3nNzp+5tiXhPRhr7etugW+GM6nvkXiHvVbpexWPzR4IPx1ZAnxeTOcVA+9bYYmsehSjXu2J2GW5RuririeZAYcLw8zmWv/fOoIeTqmJ4CLVF/6BuHKMi10qRp77Lv0=
-  - secure: kX17P1tN9LHlL75B7OnsAUqlwPFPzuzC/UlvjZvSkha5WeOPgXTSb0Ii4Dw76KRshq148pEySnEBLMgVcR0PHEKF3y11/GCIFbuS5KVZXFt/NKh++wEUh136/nseT7I/f9U8jc6Iyu7kYfpJbTKIHFM0DIqRfhO6UJJz6IKrvIlNXWeq2oSagC9yyH3G53K3crS3Hsm28zWgVrTBlOpcPT51P+IWOjmdcu9Bh+ZPTSIjcMh1sbPl04ssvMOv8zL8ZdiCezTkP3JfVUDV8CWB/UN6xK12bdChYBJz0BMgwpri1ElUtfPWmAkoTuaFzsoGBcj+rT8j32ZaLxTguH1HLr7OYiswfCeXHQNjPk4LfaAQAPR4a7Z6Q+tlCExfvqgc2rAJZuwPKU7ELpupmObCZQMt5ATtUT2+kg+uOIPAfyVT7eVLj3SODmZRDBsIUqzhhqbh0e8tKvIKO0XP7yzYyH5ro2PG/FZC0rZqIL0jLWnPOHlUxDAXEqOH+x0v3fLt0PmvNzQ3gmqZVemYSreL0qQAsDqN1pvgoprfhAyqkRmvgN5YMCG0EGpyDxxiusk6BXMHrUS8yTnK6MNpfjDEaRwHCmhSaM2G0eNHFwIVVPmZbyRELsdeh0UXMN4uabcuA37TtpIjeUe8Q7jfaNQESNKBRtWSjuWlXubeVucbOmk=
